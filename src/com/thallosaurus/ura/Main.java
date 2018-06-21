@@ -87,7 +87,7 @@ public class Main extends JPanel {
 					public void run() {
 						// TODO Auto-generated method stub
 						System.out.println("Finished!");
-						System.out.println(mem.readMemory((byte) 100));
+						
 					}
 			
 		});
