@@ -5,27 +5,27 @@ import java.util.Map;
 
 public class Memory {
   public int MAXADDRESS;
-  Map<Byte, Byte> memory;
+  Map<Integer, Integer> memory;
   int programLength = 0;
   
-  public Memory(byte size) {
+  public Memory(int size) {
 	  memory = new HashMap<>() {{
-	    for (byte i = 0; i < size; i++) {
-		  put(i, (byte) 0x00); //initialize memory with zeros by looping through the whole HashMap, lul
+	    for (int i = 0; i < size; i++) {
+		  put(i, (int) 0x0000); //initialize memory with zeros by looping through the whole HashMap, lul
 	    }
 	  }};
 	  MAXADDRESS = size;
   }
   
-  public Map<Byte, Byte> getMemoryMap() {
+  public Map<Integer, Integer> getMemoryMap() {
 	  return memory;
   }
   
-  public byte readMemory(byte address) {
+  public int readMemory(int address) {
 	  return memory.get(address);
   }
   
-  public void writeMemory(byte address, byte value) {
+  public void writeMemory(int address, int value) {
 	  memory.replace(address, value);
   }
   
@@ -35,7 +35,7 @@ public class Memory {
 	  } else {
 		  programLength = program.length;
 		  for (int i = 0; i < program.length; i++) {
-			  writeMemory((byte) i, (byte) program[i]);
+			  writeMemory(i, program[i]);
 		  }
 	  }
   }
